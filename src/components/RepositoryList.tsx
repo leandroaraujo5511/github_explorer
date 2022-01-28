@@ -3,13 +3,16 @@ import '../style/repositories.scss'
 import { useEffect, useState } from "react";
 
 
-//https://api.github.com/orgs/rocketseat/repos
-
+interface Repositorie {
+    name:string,
+    description:string,
+    html_url:string
+}
 
 
 export function RepositoryList(){
 
-    const [repositories, setRepositories] = useState([]);
+    const [repositories, setRepositories] = useState<Repositorie[]>([]);
 
     useEffect(() => {
         fetch('https://api.github.com/orgs/rocketseat/repos')
